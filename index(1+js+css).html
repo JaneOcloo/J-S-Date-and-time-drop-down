@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <title>Time and Date Dropdown</title>
+  </head>
+  <style>
+    /* ⚡ Cyberpunk Glittery Comic-Style Design 🎨 */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;700&display=swap");
+
+body {
+  background: radial-gradient(circle at center, #1a1a2e, #16213e, #0f3460);
+  font-family: "Poppins", sans-serif;
+  color: #ff44cc;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Cyberpunk Glow Effect */
+label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff44cc;
+  text-shadow: 0px 0px 10px rgba(255, 68, 204, 0.8),
+    0px 0px 20px rgba(255, 68, 204, 0.5);
+  letter-spacing: 1px;
+}
+
+/* ✨ Futuristic Dropdown Styling */
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ff44cc;
+  border-radius: 12px;
+  font-size: 18px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 15px rgba(255, 68, 204, 0.5);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* Cyberpunk Hover & Active Effects */
+select:hover,
+select:focus {
+  border-color: #00f2ff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px rgba(0, 242, 255, 0.7);
+}
+
+/* ⚡ Funky Animations */
+@keyframes neonBlink {
+  0%,
+  100% {
+    text-shadow: 0px 0px 10px #ff44cc, 0px 0px 20px #ff44cc;
+  }
+  50% {
+    text-shadow: 0px 0px 20px #00f2ff, 0px 0px 40px #00f2ff;
+  }
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Neon Text Effects */
+#current-date,
+#local-time-zone {
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  color: #ff44cc;
+  animation: neonBlink 1.5s infinite alternate;
+}
+
+/* Futuristic Panels */
+.response-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #00f2ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 242, 255, 0.5);
+  backdrop-filter: blur(15px);
+  margin-top: 20px;
+  animation: glowMove 2s infinite ease-in-out;
+}
+
+/* Fancy Headers */
+.response-title {
+  font-size: 24px;
+  color: #ff44cc;
+  text-shadow: 0px 0px 15px rgba(255, 68, 204, 0.8);
+}
+
+/* Adding Some Stars & Neon Glow Particles */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://i.imgur.com/MYF5Hde.png"); /* Add a cyberpunk starry effect */
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+div {
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+div:hover {
+  box-shadow: 0px 0px 15px rgba(255, 68, 204, 0.5);
+}
+
+  </style>
+  <body>
+    <div id="current-date"></div>
+    <br />
+    <div>
+      <label for="yerler">Wanna check the date and time? Gotcha!👻</label>
+      <select name="" id="yerler">
+        <option>Select a country</option>
+        <option value="banana">🇬🇭 Ghana</option>
+        <option value="grapes">🇳🇬 Nigeria</option>
+        <option value="cherry">🇿🇦 South Africa</option>
+        <option value="lime">🇲🇬 Madagascar</option>
+        <option value="watermelon">Latvia</option>
+      </select>
+    </div>
+     <div class="ux"></div>
+    <div id="response-box" class="response-box">
+    <br/> <h2 class="response-title">💕(✿◕‿◕✿)💕</h2>
+
+    <div id="local-time-zone">Lemme guess your time-zone...🤔</div>
+    </div>
+    <div>
+      <label for="color">What's your fav primary color?👻</label>
+      <select id="color">
+        <option value="">Select a color</option>
+        <option value="red">Red💃🏾</option>
+        <option value="blue">Blue🐬</option>
+        <option value="yellow">Yellow🍌</option>
+      </select>
+    </div>
+   
+     
+     
+    </div>
+    <script>function showSelectedColor(event) {
+  const colorEmojis = {
+    red: "❤️",
+    blue: "💙",
+    yellow: "💛",
+  };
+  if (colorEmojis[event.target.value]) {
+    alert(colorEmojis[event.target.value]);
+  }
+}
+
+let colorSelect = document.querySelector("#color");
+colorSelect.addEventListener("change", showSelectedColor);
+
+function displayDate(event) {
+  if (!event || !event.target) return;
+
+  let dateElement = document.querySelector("#current-date");
+  let timeZones = {
+    banana: {
+      name: "Accra, Ghana",
+      time: moment.tz("Africa/Accra").format("dddd, MMMM D, YYYY h:mm A"),
+    },
+    grapes: {
+      name: "Lagos, Nigeria",
+      time: moment.tz("Africa/Lagos").format("dddd, MMMM D, YYYY h:mm A"),
+    },
+    cherry: {
+      name: "Johannesburg, South Africa",
+      time: moment
+        .tz("Africa/Johannesburg")
+        .format("dddd, MMMM D, YYYY h:mm A"),
+    },
+    lime: {
+      name: "Antananarivo, Madagascar",
+      time: moment
+        .tz("Indian/Antananarivo")
+        .format("dddd, MMMM D, YYYY h:mm A"),
+    },
+    watermelon: {
+      name: "Riga, Latvia",
+      time: moment.tz("Europe/Riga").format("dddd, MMMM D, YYYY h:mm A"),
+    },
+  };
+
+  let selectedValue = event.target.value;
+  if (timeZones[selectedValue]) {
+    dateElement.innerHTML = `It is ${timeZones[selectedValue].time} in ${timeZones[selectedValue].name}`;
+  } else {
+    dateElement.innerHTML = "👉 Select a country to see the time 👈";
+  }
+}
+
+let yerlerSelect = document.querySelector("#yerler");
+yerlerSelect.addEventListener("change", displayDate);
+
+function guessTime() {
+  let localTimezone = moment.tz.guess();
+  let localElement = document.querySelector("#local-time-zone");
+
+  let currentTime = moment().format("h:mm A");
+  let timeText = `Your current time zone is ${localTimezone} and the current time is ${currentTime}`;
+
+  localElement.innerHTML = timeText;
+
+  new Typewriter("#local-time-zone", {
+    strings: timeText,
+    autoStart: true,
+    delay: 1,
+    cursor: "",
+  });
+}
+
+guessTime();
+setInterval(guessTime, 60000); // Update every minute
+
+function updateResponseBox(event) {
+  if (!event || !event.target) return;
+
+  let responseBox = document.querySelector("#response-box");
+  let themes = {
+    banana: "love-theme",
+    grapes: "night-theme",
+    cherry: "sad-theme",
+    lime: "happy-theme",
+    watermelon: "mystery-theme",
+  };
+
+  responseBox.className = `response-box ${
+    themes[event.target.value] || "default-theme"
+  }`;
+}
+
+yerlerSelect.addEventListener("change", updateResponseBox);
+</script>
+  </body>
+</html>
