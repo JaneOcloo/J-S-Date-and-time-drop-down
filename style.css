@@ -1,0 +1,125 @@
+/* ⚡ Cyberpunk Glittery Comic-Style Design 🎨 */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;700&display=swap");
+
+body {
+  background: radial-gradient(circle at center, #1a1a2e, #16213e, #0f3460);
+  font-family: "Poppins", sans-serif;
+  color: #ff44cc;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Cyberpunk Glow Effect */
+label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff44cc;
+  text-shadow: 0px 0px 10px rgba(255, 68, 204, 0.8),
+    0px 0px 20px rgba(255, 68, 204, 0.5);
+  letter-spacing: 1px;
+}
+
+/* ✨ Futuristic Dropdown Styling */
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ff44cc;
+  border-radius: 12px;
+  font-size: 18px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 15px rgba(255, 68, 204, 0.5);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* Cyberpunk Hover & Active Effects */
+select:hover,
+select:focus {
+  border-color: #00f2ff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px rgba(0, 242, 255, 0.7);
+}
+
+/* ⚡ Funky Animations */
+@keyframes neonBlink {
+  0%,
+  100% {
+    text-shadow: 0px 0px 10px #ff44cc, 0px 0px 20px #ff44cc;
+  }
+  50% {
+    text-shadow: 0px 0px 20px #00f2ff, 0px 0px 40px #00f2ff;
+  }
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Neon Text Effects */
+#current-date,
+#local-time-zone {
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  color: #ff44cc;
+  animation: neonBlink 1.5s infinite alternate;
+}
+
+/* Futuristic Panels */
+.response-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #00f2ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 242, 255, 0.5);
+  backdrop-filter: blur(15px);
+  margin-top: 20px;
+  animation: glowMove 2s infinite ease-in-out;
+}
+
+/* Fancy Headers */
+.response-title {
+  font-size: 24px;
+  color: #ff44cc;
+  text-shadow: 0px 0px 15px rgba(255, 68, 204, 0.8);
+}
+
+/* Adding Some Stars & Neon Glow Particles */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://i.imgur.com/MYF5Hde.png"); /* Add a cyberpunk starry effect */
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Cyberpunk Glowing Borders */
+div {
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+div:hover {
+  box-shadow: 0px 0px 15px rgba(255, 68, 204, 0.5);
+}
